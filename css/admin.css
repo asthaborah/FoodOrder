@@ -1,0 +1,72 @@
+/*
+    Author : Astha Borah
+    Theme : Food ordering Website
+    Version : 1.0
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wrapper{
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.clearfix{
+    float : none;
+    clear: both;
+}
+.text-align{
+    text-align: center;
+}
+/* Menu css styling */
+.menu{
+    border-bottom: 1px solid black;
+}
+
+.menu ul{
+    list-style-type: none;
+}
+
+.menu ul li {
+    color: #ff6b81;
+    display: inline;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.menu ul a{
+    text-decoration: none;  
+}
+
+.menu ul li:hover{
+    color: #ff4757;
+}
+
+/* Main-Content css styling */
+
+.main-content{
+    background-color: #f1f2f6;
+}
+
+.col-4{
+    background-color: white;
+    width: 18%;
+    margin: 1%;
+    padding: 2%;
+    float: left;
+}
+
+/* Footer css styling */
+.footer{
+    background-color: #ff4757;
+}
+
+.footer-text{
+    color: white;
+}
+
