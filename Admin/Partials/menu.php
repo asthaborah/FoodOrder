@@ -14,13 +14,13 @@
             <a href="Manage-admin.php">
                 <li>Admin</li>
             </a>
-            <a href="#">
+            <a href="manage-category.php">
                 <li>Category</li>
             </a>
-            <a href="#">
+            <a href="manage-food.php">
                 <li>Food</li>
             </a>
-            <a href="#">
+            <a href="manage-order.php">
                 <li>Order</li>
             </a>
         </ul>
