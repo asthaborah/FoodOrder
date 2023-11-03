@@ -13,7 +13,7 @@
 .wrapper{
     width: 80%;
     margin: 0 auto;
-    padding: 10px;
+    padding: 20px;
 }
 
 .clearfix{
@@ -23,6 +23,58 @@
 .text-align{
     text-align: center;
 }
+
+.btn-primary{
+    text-decoration: none;
+    background-color: #1e90ff;
+    color: white;
+    padding: 1%;
+}
+
+.btn-primary:hover{
+    background-color: #3742fa;
+}
+
+.btn-success{
+    text-decoration: none;
+    background-color: #7bed9f;
+    color: black;
+    padding: 1%;
+}
+
+.btn-success:hover{
+    background-color: #2ed573;
+}
+
+.btn-danger{
+    text-decoration: none;
+    background-color: #ff6b81;
+    color: white;
+    padding: 1%;
+}
+
+.btn-danger:hover{
+    background-color: #ff4757;
+}
+
+/* Manage Admin */
+
+/* tables css */
+.tbl-full{
+    width: 100%;
+}
+
+table th{
+    font-weight: bold;
+    text-align: left;
+    border-bottom: 1px solid black;
+}
+table td , th{
+    padding: 1%;
+    
+}
+
+  
 /* Menu css styling */
 .menu{
     border-bottom: 1px solid black;
