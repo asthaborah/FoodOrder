@@ -60,9 +60,15 @@
 /* Manage Admin */
 
 /* tables css */
+.tbl-custom{
+    width:30%;
+}
+
 .tbl-full{
     width: 100%;
 }
+
+
 
 table th{
     font-weight: bold;
