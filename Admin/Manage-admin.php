@@ -11,6 +11,15 @@
         }
         ?>
 
+        <!-- if admin is deleted succesfully or failed to delete  -->
+        <?php
+
+        if(isset($_SESSION['delete'])){
+            echo $_SESSION['delete'];
+            unset($_SESSION['delete']);
+        }
+        ?>
+
         <br><br>
         <a href="add-admin.php" class="btn-primary">Add Admin</a>
 
@@ -58,7 +67,7 @@
                             </td>
                             <td>
                                 <a href="#" class="btn-success">Update Admin</a>
-                                <a href="#" class="btn-danger">Delete Admin</a>
+                                <a href="<?php echo SITEURL?>admin/delete-admin.php?id=<?php echo $id?>" class="btn-danger">Delete Admin</a> <!--Get method-->
                             </td>
 
                         </tr>
