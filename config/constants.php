@@ -1,5 +1,8 @@
 <?php
+    //starting a session
+    session_start();
     //creating constants to store values in database
+    define("SITEURL" , "http://localhost:8080/FoodOrder/"); //url for the homepage
     define("LOCALHOST" , "localhost");
     define("DB_USERNAME" , "root");
     define("DB_PASSWORD" , "");
