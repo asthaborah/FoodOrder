@@ -74,19 +74,19 @@ if (isset($_POST['submit'])) {
                 } else {
                     //if the query is not executed successfully
                     $_SESSION["Update-password"] = "<div class = 'error'>Error updating password</div>";
-                    //redirect to admin pafe
+                    //redirect to admin page
                     header("location:" . SITEURL . "admin/manage-admin.php");
                 }
             } else {
                 //password not matched
                 $_SESSION["pwd-not-found"] = "<div class = 'error'>Password did not match</div>";
-                //redirect to admin pafe
+                //redirect to admin page
                 header("location:" . SITEURL . "admin/manage-admin.php");
             }
         } else {
             //user doesn't exist
             $_SESSION["User-not-found"] = "<div class = 'error'>User not found</div>";
-            //redirect to admin pafe
+            //redirect to admin page
             header("location:" . SITEURL . "admin/manage-admin.php");
         }
     }
