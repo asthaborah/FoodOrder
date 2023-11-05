@@ -1,3 +1,4 @@
+
 <?php
 //Include the constanst file for database connection
 include("../config/constants.php");
@@ -15,13 +16,13 @@ $res = mysqli_query($conn, $sql);
 
 if ($res) {
     //if query is executed successfully
-    $_SESSION['delete'] = "Admin deleted successfully";
+    $_SESSION['delete'] = "<div class = 'success'>Admin deleted successfully.</div>";
 
     //redirect to manage admin page
     header("location:" . SITEURL . "admin/manage-admin.php");
 } else {
     //if query is not executed successfully
-    $_SESSION['delete'] = "Error deleting admin";
+    $_SESSION['delete'] = "<div class = 'error'>Error deleting admin</div>";
 
     //redirect to manage admin page
     header("location:" . SITEURL . "admin/manage-admin.php");
