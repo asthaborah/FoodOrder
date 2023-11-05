@@ -141,7 +141,9 @@ table td , th{
     border : 1px solid grey;
     width: 20%;
     margin: 10% auto;
-    padding: 2%;
     background-color: white;
+    padding: 2%;
     color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
 }
