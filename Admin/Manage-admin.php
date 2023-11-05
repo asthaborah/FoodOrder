@@ -9,16 +9,19 @@
             echo $_SESSION['add']; // to display the session message
             unset($_SESSION['add']); // to remove the session message once displayed
         }
-        ?>
-
-        <!-- if admin is deleted succesfully or failed to delete  -->
-        <?php
-
+        //if admin is deleted succesfully or failed to delete
         if(isset($_SESSION['delete'])){
             echo $_SESSION['delete'];
             unset($_SESSION['delete']);
         }
+
+        //if the admin is update succesfully or failed to update
+        if(isset($_SESSION['update'])){
+            echo $_SESSION['update'];
+            unset($_SESSION['update']);
+        }
         ?>
+
 
         <br><br>
         <a href="add-admin.php" class="btn-primary">Add Admin</a>
@@ -66,7 +69,7 @@
                                 <?php echo $username ?>
                             </td>
                             <td>
-                                <a href="#" class="btn-success">Update Admin</a>
+                                <a href="<?php echo SITEURL?>admin/update-admin.php?id=<?php echo $id?>" class="btn-success">Update Admin</a>
                                 <a href="<?php echo SITEURL?>admin/delete-admin.php?id=<?php echo $id?>" class="btn-danger">Delete Admin</a> <!--Get method-->
                             </td>
 
