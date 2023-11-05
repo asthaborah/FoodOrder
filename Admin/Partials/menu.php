@@ -23,6 +23,9 @@
             <a href="manage-order.php">
                 <li>Order</li>
             </a>
+            <a href="login.php">
+                <li>Logout</li>
+            </a>
         </ul>
     </div>
 </div>
