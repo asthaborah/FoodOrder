@@ -58,7 +58,7 @@ if ($res) {
 //check if button is clicked or not
 if (isset($_POST["submit"])) {
     //button is clicked
-    $id = (int)$_POST['id']; // getting data through post method //typecasting as the value we get is a string
+    $id = $_POST['id']; // getting data through post method //typecasting as the value we get is a string
     $full_name = $_POST['full_name'];
     $username = $_POST['username'];
 

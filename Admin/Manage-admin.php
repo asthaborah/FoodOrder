@@ -20,6 +20,24 @@
             echo $_SESSION['update'];
             unset($_SESSION['update']);
         }
+
+        //if the user is not found 
+        if(isset($_SESSION["User-not-found"])){
+            echo $_SESSION["User-not-found"];
+            unset($_SESSION["User-not-found"]);
+        }
+
+        //if the is not matched
+        if(isset($_SESSION["pwd-not-found"])){
+            echo $_SESSION["pwd-not-found"];
+            unset($_SESSION["pwd-not-found"]);
+        }
+
+        //if the password is updated successfully or not
+        if(isset($_SESSION["Update-password"])){
+            echo $_SESSION["Update-password"];
+            unset($_SESSION["Update-password"]);
+        }
         ?>
 
 
@@ -69,6 +87,7 @@
                                 <?php echo $username ?>
                             </td>
                             <td>
+                                <a href = "<?php echo SITEURL?>admin/update-password.php?id=<?php echo $id?>" class = "btn-primary">Change Password</a>
                                 <a href="<?php echo SITEURL?>admin/update-admin.php?id=<?php echo $id?>" class="btn-success">Update Admin</a>
                                 <a href="<?php echo SITEURL?>admin/delete-admin.php?id=<?php echo $id?>" class="btn-danger">Delete Admin</a> <!--Get method-->
                             </td>
