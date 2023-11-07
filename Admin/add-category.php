@@ -83,6 +83,14 @@
                 //it will check if the image is selected or not with image name
                 //now check if image is uploaded or not
                 $image_name = $_FILES['image']['name'];
+
+                //we don't want if the image has same name then it will overwrite the image to prevent this we will randomly assign value
+                $ext = explode('.', $image_name);
+                $extension = end($ext);
+
+                //set the random value
+                $image_name = "Food_category" . rand(000 , 999) . '.' . $extension;
+
                 //to upload image we need image name , destination path and source path
                 $source_path = $_FILES['image']['tmp_name'];
 
