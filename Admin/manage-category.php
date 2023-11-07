@@ -3,53 +3,93 @@
     <div class="wrapper">
         <h1>Manage Category</h1>
         <br><br>
-        <a href="<?php echo SITEURL?>admin/add-category.php" class="btn-primary">Add Category</a>
+        <a href="<?php echo SITEURL ?>admin/add-category.php" class="btn-primary">Add Category</a>
         <br><br>
-        <?php 
+        <?php
         //if category is added successfully
-            if(isset($_SESSION["add"])) {
-                echo $_SESSION["add"];
-                unset($_SESSION["add"]);
-            }
+        if (isset($_SESSION["add"])) {
+            echo $_SESSION["add"];
+            unset($_SESSION["add"]);
+        }
         ?>
         <br><br><br>
         <table class="tbl-full">
             <tr>
                 <th>S.N.</th>
-                <th>Full Name</th>
-                <th>UserName</th>
+                <th>title</th>
+                <th>image_name</th>
+                <th>Featured</th>
+                <th>Active</th>
                 <th>Actions</th>
             </tr>
-            <tr>
-                <td>1.</td>
-                <td>Astha Borah</td>
-                <td>asthaborah1</td>
-                <td>
-                    <a href="#" class="btn-success">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
 
-            </tr>
-            <tr>
-                <td>2.</td>
-                <td>Pranay Jain</td>
-                <td>PranayJain09</td>
-                <td>
-                    <a href="#" class="btn-success">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
+            <!-- get the data from the table -->
+            <?php
+            //write a query to fetch data from the table
+            $sql = "SELECT * FROM tbl_category";
 
-            </tr>
-            <tr>
-                <td>3.</td>
-                <td>Prachi shirsale</td>
-                <td>shirsalePrachi1</td>
-                <td>
-                    <a href="#" class="btn-success">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
+            //execute the query
+            $res = mysqli_query($conn, $sql);
 
-            </tr>
+            if ($res) {
+                //query is executed
+                $count = mysqli_num_rows($res);
+
+                
+                if ($count > 0) {
+                    //data is there is the database
+                    $sn = 1;
+                    while ($row = mysqli_fetch_assoc($res)) {
+                        $id = $row['id'];
+                        $title = $row['title'];
+                        $image_name = $row['image_name'];
+                        $featured = $row['featured'];
+                        $active = $row['active'];
+
+                        ?>
+                        <tr>
+                            <td>
+                                <?php echo $sn++ ?>
+                            </td>
+                            <td>
+                                <?php echo $title ?>
+                            </td>
+                            <td>
+                                <?php if ($image_name != "") {
+                                    ?>
+                                        <img src = "<?php echo SITEURL; ?>images/Category/<?php echo $image_name?>" width="100px">
+                                    <?php
+                                }else{
+                                    echo "<div class = 'error'>No image added</div>";
+                                }
+                                ?>
+                            </td>
+                            <td>
+                                <?php echo $featured ?>
+                            </td>
+                            <td>
+                                <?php echo $active ?>
+                            </td>
+                            <td>
+                                <a href="#" class="btn-success">Update category</a>
+                                <a href="#" class="btn-danger">Delete category</a>
+                            </td>
+
+                        </tr>
+
+                        <?php
+                    }
+                } else {
+                    ?>
+                    <tr>
+                        <td colspan="6">
+                            <div class="error">No category added</div>
+                        </td>
+                    </tr>
+                    <?php
+                }
+            }
+            ?>
         </table>
     </div>
 </div>
