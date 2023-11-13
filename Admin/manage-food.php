@@ -3,7 +3,7 @@
     <div class="wrapper">
         <h1>Manage Food</h1>
         <br><br>
-        <a href="#" class="btn-primary">Add food</a>
+        <a href="<?php echo SITEURL ?>admin/add-food.php" class="btn-primary">Add food</a>
 
         <br><br><br>
         <table class="tbl-full">
