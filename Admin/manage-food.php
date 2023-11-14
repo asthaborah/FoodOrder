@@ -6,6 +6,13 @@
         <a href="<?php echo SITEURL ?>admin/add-food.php" class="btn-primary">Add food</a>
 
         <br><br><br>
+        <?php 
+            //if the food is added or not
+            if(isset($_SESSION['add-food'])){
+                echo $_SESSION['add-food'];
+                unset($_SESSION['add-food']);
+            }
+        ?>
         <table class="tbl-full">
             <tr>
                 <th>S.N.</th>

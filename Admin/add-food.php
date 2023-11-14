@@ -3,7 +3,15 @@
 <div class="main-content">
     <div class="wrapper">
         <h1>Add food</h1>
-        <form action="" method="post">
+        <br><br>
+        <?php 
+            //if image is failed to uploaded
+            if(isset($_SESSION['failed-upload-image'])){
+                echo $_SESSION['failed-upload-image'];
+                unset($_SESSION['failed-upload-image']);
+            }
+        ?>
+        <form action="" method="post" enctype="multipart/form-data">
             <table class="tbl_custom">
                 <tr>
                     <td>Title:</td>
@@ -77,5 +85,72 @@
             </table>
         </form>
     </div>
+
+    <?php 
+        if(isset($_POST['submit'])){
+            $id = $_POST['id'];
+            $title = $_POST['title'];
+            $description = $_POST['description'];
+            $price = $_POST['price'];
+            $category = $_POST['category'];
+            if(isset($_POST['featured'])){
+                $featured = $_POST['featured'];
+            }else{
+                $featured = 'No';
+            }
+
+            if(isset($_POST['active'])){
+                $active = $_POST['active'];
+            }else{
+                $active = 'No';
+            }
+
+            if(isset($_FILES['image']['name'])){
+                $image_name = $_FILES['image']['name'];
+                if($image_name != ""){
+                    $ext = explode("." , $image_name);
+                    $extension = end($ext);
+
+                    //set the image name
+                    $image_name = "Food-Name-" . rand(0000,9999) . "." . $extension;
+                    $src = $_FILES['image']['tmp_name'];
+                    $destination_path = "../images/Food/" . $image_name;
+
+                    $upload = move_uploaded_file($src , $destination_path);
+
+                    if(!$upload){
+                        $_SESSION['failed-upload-image'] = "<div class = 'error>Failed to upload image</div>";
+                        header("location:" . SITEURL . "admin/add-food.php");
+                        die();
+                    }
+                }else{
+                    $image_name = "";
+                }
+            }
+
+            //query to insert into table
+
+            $sql3 = "INSERT INTO tbl_food SET
+            title = '$title',
+            description = '$description',
+            price = $price,
+            image_name = '$image_name',
+            category_id = $category,
+            featured = '$featured',
+            active = '$active'
+            ";
+
+            $res2 = mysqli_query($conn , $sql3);
+
+            if($res2){
+                $_SESSION["add-food"] = "<div class = 'success'>Food added successfully</div>";
+                header("location:" . SITEURL . 'admin/manage-food.php');
+            }else{
+                $_SESSION["add-food"] = "<div class = 'error'>Failed to add food</div>";
+                header("location:" . SITEURL . 'admin/manage-food.php');
+            }
+
+        }
+    ?>
 </div>
 <?php include("Partials/footer.php"); ?>
