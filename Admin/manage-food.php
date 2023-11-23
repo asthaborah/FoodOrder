@@ -12,6 +12,17 @@
             echo $_SESSION['add-food'];
             unset($_SESSION['add-food']);
         }
+
+        //session for delete food
+        if (isset($_SESSION['delete-food'])) {
+            echo $_SESSION['delete-food'];
+            unset($_SESSION['delete-food']);
+        }
+
+        if (isset($_SESSION['Failed-food-image'])) {
+            echo $_SESSION['Failed-food-image'];
+            unset($_SESSION['Failed-food-image']);
+        }
         ?>
         <table class="tbl-full">
             <tr>
@@ -60,7 +71,7 @@
                             <td><?php echo $active; ?></td>
                             <td>
                                 <a href="#" class="btn-success">Update Food</a>
-                                <a href="<?php echo SITEURL?>admin/delete-food.php?id=<?php echo $id?>" class="btn-danger">Delete Food</a>
+                                <a href="<?php echo SITEURL?>admin/delete-food.php?id=<?php echo $id?>&image_name=<?php echo $image_name;?>" class="btn-danger">Delete Food</a>
                             </td>
 
                         </tr>
