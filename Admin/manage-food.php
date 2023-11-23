@@ -34,6 +34,7 @@
                 $sn = 1;
                 if ($count > 0) {
                     while ($row = mysqli_fetch_assoc($res)) {
+                        $id = $row['id'];
                         $title = $row['title'];
                         $price = $row['price'];
                         $featured = $row['featured'];
@@ -59,7 +60,7 @@
                             <td><?php echo $active; ?></td>
                             <td>
                                 <a href="#" class="btn-success">Update Food</a>
-                                <a href="<?php SITEURL?>admin/delete-food.php" class="btn-danger">Delete Food</a>
+                                <a href="<?php echo SITEURL?>admin/delete-food.php?id=<?php echo $id?>" class="btn-danger">Delete Food</a>
                             </td>
 
                         </tr>
