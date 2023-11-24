@@ -70,7 +70,7 @@
                             <td><?php echo $featured; ?></td>
                             <td><?php echo $active; ?></td>
                             <td>
-                                <a href="#" class="btn-success">Update Food</a>
+                                <a href="<?php echo SITEURL?>admin/update-food.php?id=<?php echo $id?>" class="btn-success">Update Food</a>
                                 <a href="<?php echo SITEURL?>admin/delete-food.php?id=<?php echo $id?>&image_name=<?php echo $image_name;?>" class="btn-danger">Delete Food</a>
                             </td>
 
