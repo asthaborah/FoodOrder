@@ -104,5 +104,18 @@ if (isset($_GET['id'])) {
             </table>
         </form>
     </div>
+    <?php 
+        if(isset($_POST['submit'])){
+            $id = $_POST['id'];
+            $title = $_POST['title'];
+            $description = $_POST['description'];
+            $current_image = $_POST['current_image'];
+            $price = $_POST['price'];
+            $category = $_POST['category'];
+            $featured = $_POST['featured'];
+            $active = $_POST['active'];
+        }
+    
+    ?>
 </div>
 <?php include("Partials/Footer.php"); ?>
