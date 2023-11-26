@@ -2,6 +2,17 @@
 <?php
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
+    $sql = "SELECT * FROM tbl_food WHERE id = $id";
+    $res = mysqli_query($conn , $sql);
+    $row = mysqli_fetch_assoc($res);
+    $title = $row['title'];
+    $description = $row['description'];
+    $price = $row['price'];
+    $current_image = $row['image_name'];
+    $current_category = $row['category_id'];
+    $featured = $row['featured'];
+    $active = $row['active'];
+    
 } else {
     header("location:" . SITEURL . "admin/manage-food.php");
 }
@@ -13,19 +24,31 @@ if (isset($_GET['id'])) {
             <table class="tbl-custom">
                 <tr>
                     <td>Title:</td>
-                    <td><input type="text" name="title" value=""></td>
+                    <td><input type="text" name="title" value="<?php echo $title?>"></td>
                 </tr>
                 <tr>
                     <td>Description:</td>
-                    <td><textarea name="description" cols="30" rows="5"></textarea></td>
+                    <td><textarea name="description" cols="30" rows="5"><?php echo $description?></textarea></td>
                 </tr>
                 <tr>
                     <td>Price:</td>
-                    <td><input type="number" name="price" value=""></td>
+                    <td><input type="number" name="price" value="<?php echo $price?>"></td>
                 </tr>
                 <tr>
                     <td>Current Image:</td>
-
+                    <td>
+                    <?php 
+                        if($current_image == ""){
+                            echo "<div class = 'error'>Image not available</div>";
+                        }else{
+                            ?>
+                            <img src = "<?php echo SITEURL; ?>images/Food/<?php echo $current_image?>" width="150px">
+                            <?php
+                        }
+                    ?>
+                    </td>
+                    
+                    
                 </tr>
                 <tr>
                     <td>Select New Image:</td>
@@ -36,14 +59,14 @@ if (isset($_GET['id'])) {
                     <td><select name="category">
                             <?php
                             $sql2 = "SELECT * FROM tbl_category where active = 'Yes'";
-                            $res = mysqli_query($conn, $sql2);
-                            $count = mysqli_num_rows($res);
+                            $res2 = mysqli_query($conn, $sql2);
+                            $count = mysqli_num_rows($res2);
                             if ($count > 0) {
-                                while ($row = mysqli_fetch_assoc($res)) {
-                                    $category_id = $row['id'];
-                                    $category_title = $row['title'];
+                                while ($row2 = mysqli_fetch_assoc($res2)) {
+                                    $category_id = $row2['id'];
+                                    $category_title = $row2['title'];
                                     ?>
-                                    <option value="<?php echo $category_id ?>">
+                                    <option <?php if($current_category == $category_id){echo "selected";}?> value="<?php echo $category_id ?>">
                                         <?php echo $category_title ?>
                                     </option>
                                     <?php
@@ -60,15 +83,20 @@ if (isset($_GET['id'])) {
                 <tr>
                     <td>Featured:</td>
                     <td>
-                        <input type="radio" name="featured" value="Yes">Yes
-                        <input type="radio" name="featured" value="No">No
+                        <input <?php if($featured == "Yes"){echo "checked";}?> type="radio" name="featured" value="Yes">Yes
+                        <input <?php if($featured == "No"){echo "checked";}?> type="radio" name="featured" value="No">No
                     </td>
                 </tr>
                 <tr>
                     <td>Active:</td>
                     <td>
-                        <input type="radio" name="active" value="Yes">Yes
-                        <input type="radio" name="active" value="No">No
+                        <input <?php if($active == "Yes"){echo "checked";} ?> type="radio" name="active" value="Yes">Yes
+                        <input <?php if($active == "No"){echo "checked";} ?> type="radio" name="active" value="No">No
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" name="submit" value="Update food" class = 'btn-success'>
                     </td>
                 </tr>
             </table>
