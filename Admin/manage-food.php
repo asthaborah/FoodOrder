@@ -23,6 +23,12 @@
             echo $_SESSION['Failed-food-image'];
             unset($_SESSION['Failed-food-image']);
         }
+
+        //if the food image is not uploaded
+        if(isset($_SESSION["failed-upload-food"])){
+            echo $_SESSION["failed-upload-food"];
+            unset($_SESSION["failed-upload-food"]);
+        }
         ?>
         <table class="tbl-full">
             <tr>

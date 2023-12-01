@@ -121,7 +121,30 @@ if (isset($_GET['id'])) {
 
                 //now check if the image is uploaded or not
                 if($image_name != ""){
-                    
+                    $ext = explode("." , $image_name); //split the image according to the dot
+                    $extension = end($ext); // only fetch the extension of the image file
+
+                    //renaming the image
+                    $image_name = 'Food-category' . rand(0000 , 9999) . '.' .$extension;
+
+                    //set the source path
+                    $source_path = $_FILES['image']['tmp_name'];
+
+                    //set the destination path
+                    $destination_path = "../images/Food/" . $image_name;
+
+                    //upload the image
+
+                    $upload = move_uploaded_file($source_path , $destination_path);
+
+                    if(!$upload){
+                        $_SESSION["failed-upload-food"] = "<div class = 'error'>Failed to upload image</div>";
+
+                        header("location:" . SITEURL . "admin/manage-food.php");
+
+                        die();
+                    }
+
                 }else{
                     $image_name = $current_image; // if the image is not selected then set the original image
                 }
