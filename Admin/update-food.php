@@ -114,6 +114,21 @@ if (isset($_GET['id'])) {
             $category = $_POST['category'];
             $featured = $_POST['featured'];
             $active = $_POST['active'];
+
+            //check if the new image button is been pressed or not
+            if(isset($_FILES['image']['name'])){ // this process doesn't guarentee if the image is uploaded or not
+                $image_name = $_FILES['image']['name']; // this will store the image in that variable if not uploaded then empty string will be stored
+
+                //now check if the image is uploaded or not
+                if($image_name != ""){
+                    
+                }else{
+                    $image_name = $current_image; // if the image is not selected then set the original image
+                }
+
+            }else{
+                $image_name = $current_image; // if the image is not selected then set the original image
+            }
         }
     
     ?>
