@@ -29,6 +29,18 @@
             echo $_SESSION["failed-upload-food"];
             unset($_SESSION["failed-upload-food"]);
         }
+
+        //if the food is updated or not
+        if(isset($_SESSION["updated-food"])){
+            echo $_SESSION["updated-food"];
+            unset($_SESSION["updated-food"]);
+        }
+
+        //if there is no category
+        if(isset($_SESSION["no-food-found"])){
+            echo $_SESSION["no-food-found"];
+            unset($_SESSION["no-food-found"]);
+        }
         ?>
         <table class="tbl-full">
             <tr>

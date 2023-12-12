@@ -95,7 +95,7 @@ if (isset($_GET['id'])) {
                 <tr>
                     <td colspan="2">
                         <input type="hidden" name="current_image" value="<?php echo $current_image; ?>">
-                        <input type="hidden" name="id" value="<?php echo $id ?>">
+                        <input type="hidden" name="id" value="<?php echo $id?>">
                         <input type="submit" name="submit" value="Update category" class="btn-success">
                     </td>
                 </tr>
@@ -173,7 +173,7 @@ if (isset($_POST['submit'])) {
     if ($res2) {
         $_SESSION["update-category"] = "<div class = 'success'>Category updated succesfully</div>";
 
-        header("location:" . SITEURL . "admin/manage-category.php");
+        header("location:" .SITEURL. "admin/manage-category.php");
     } else {
         $_SESSION["update-category"] = "<div class = 'error'>Failed to update category</div>";
 
