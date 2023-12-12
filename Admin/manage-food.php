@@ -41,6 +41,12 @@
             echo $_SESSION["no-food-found"];
             unset($_SESSION["no-food-found"]);
         }
+
+        //if the image is failed to remove
+        if(isset($_SESSION["remove-failed"])){
+            echo $_SESSION["remove-failed"];
+            unset($_SESSION["remove-failed"]);
+        }
         ?>
         <table class="tbl-full">
             <tr>

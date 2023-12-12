@@ -78,18 +78,13 @@ if (isset($_GET['id'])) {
                                     $category_id = $row2['id'];
                                     $category_title = $row2['title'];
                                     ?>
-                                    <option <?php if ($current_category == $category_id) {
-                                        echo "selected";
-                                    } ?>
-                                        value="<?php echo $category_id ?>">
-                                        <?php echo $category_title ?>
-                                    </option>
+                                    <option <?php if ($current_category == $category_id){echo "selected";} ?>value="<?php echo $category_id ?>"><?php echo $category_title ?></option>
                                     <?php
                                 }
                             } else {
-                                ?>
-                                <option value="0">No category added</option>
-                                <?php
+    
+                                echo "<option value='0'>No category added</option>";
+                    
                             }
                             ?>
                         </select>
@@ -98,26 +93,15 @@ if (isset($_GET['id'])) {
                 <tr>
                     <td>Featured:</td>
                     <td>
-                        <input <?php if ($featured == "Yes") {
-                            echo "checked";
-                        } ?> type="radio" name="featured"
-                            value="Yes">Yes
-                        <input <?php if ($featured == "No") {
-                            echo "checked";
-                        } ?> type="radio" name="featured"
-                            value="No">No
+                        <input <?php if ($featured == "Yes") {echo "checked";} ?> type="radio" name="featured" value="Yes">Yes
+                        <input <?php if ($featured == "No") {echo "checked";} ?> type="radio" name="featured" value="No">No
                     </td>
                 </tr>
                 <tr>
                     <td>Active:</td>
                     <td>
-                        <input <?php if ($active == "Yes") {
-                            echo "checked";
-                        } ?> type="radio" name="active"
-                            value="Yes">Yes
-                        <input <?php if ($active == "No") {
-                            echo "checked";
-                        } ?> type="radio" name="active" value="No">No
+                        <input <?php if ($active == "Yes") {echo "checked";} ?> type="radio" name="active" value="Yes">Yes
+                        <input <?php if ($active== "No") {echo "checked";} ?> type="radio" name="active" value="No">No
                     </td>
                 </tr>
                 <tr>
@@ -173,7 +157,7 @@ if (isset($_POST['submit'])) {
             }
 
             if($current_image != ""){
-                $remove_path = "../images/food" . $current_image;
+                $remove_path = "../images/Food/" . $current_image;
                 $remove = unlink($remove_path);
 
                 //check whether the image is removed or not
@@ -197,7 +181,7 @@ if (isset($_POST['submit'])) {
             description = '$description',
             image_name = '$image_name',
             price = $price,
-            category_id = $category,
+            category_id = '$category',
             featured = '$featured',
             active = '$active'
             WHERE id = $id";
@@ -207,12 +191,12 @@ if (isset($_POST['submit'])) {
     if ($res3) {
         //query has executed successfully
         $_SESSION["updated-food"] = "<div class = 'success'>Category updated succesfully</div>";
-        header("location:" . SITEURL . "admin/update-food.php");
+        header("location:" . SITEURL . "admin/manage-food.php");
     } else {
         //query has failed to execute
-        $error_message = mysqli_error($conn); // Replace $your_db_connection with your database connection variable
 
-        $_SESSION["updated-food"] = "<div class='error'>Failed to update. Error: " . $error_message . "</div>";
+        $_SESSION["updated-food"] = "<div class='error'>Failed to update</div>";
+        header("location:" . SITEURL . "admin/manage-food.php");
 
         //redirect to manage-food page
     }
