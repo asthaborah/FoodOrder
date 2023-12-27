@@ -21,7 +21,7 @@
         <!-- adding the categories dynamically from the database -->
         <?php
         //creating sql query for displaying the categories
-        $sql = "SELECT * FROM tbl_category";
+        $sql = "SELECT * FROM tbl_category LIMIT 3";
 
         //executing the query
         $res = mysqli_query($conn, $sql);
