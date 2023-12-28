@@ -5,6 +5,13 @@
         <div class="container">
             <h2 class="text-center">Explore Foods</h2>
 
+            <!-- code for fetching categories from the backend -->
+            <?php
+            
+                //query for displaying the categories
+                $sql = "SELECT * FROM tbl_category WHERE active = 'Yes";
+            ?>
+
             <a href="category-foods.html">
             <div class="box-3 float-container">
                 <img src="images/pizza.jpg" alt="Pizza" class="img-responsive img-curve">
