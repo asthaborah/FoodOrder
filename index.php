@@ -44,13 +44,16 @@
                         <?php
                         if ($image_name == "") {
                             echo "<div class = 'error'>Image not added.</div>";
-                        }else{
-                           ?>
-                            <img src="<?php echo SITEURL;?>images/Category/<?php echo $image_name;?>" alt="Pizza" class="img-responsive img-curve">
-                           <?php 
+                        } else {
+                            ?>
+                            <img src="<?php echo SITEURL; ?>images/Category/<?php echo $image_name; ?>" alt="Pizza"
+                                class="img-responsive img-curve">
+                        <?php
                         }
-                        ?>                      
-                        <h3 class="float-text text-white"><?php echo $title;?></h3>
+                        ?>
+                        <h3 class="float-text text-white">
+                            <?php echo $title; ?>
+                        </h3>
                     </div>
                 </a>
                 <?php
@@ -71,48 +74,56 @@
 
         <!-- adding functionality to add featured food through database -->
         <?php
-            $sql2 = "SELECT * FROM tbl_food WHERE active = 'Yes' AND featured = 'Yes' LIMIT 6";
-            
-            //execute the query
+        $sql2 = "SELECT * FROM tbl_food WHERE active = 'Yes' AND featured = 'Yes' LIMIT 6";
 
-            $res2 = mysqli_query($conn , $sql2);
+        //execute the query
+        
+        $res2 = mysqli_query($conn, $sql2);
 
-            //count the rows
+        //count the rows
+        
+        $count = mysqli_num_rows($res2);
 
-            $count = mysqli_num_rows($res2);
+        //check whether is food exist or not
+        
+        if ($count > 0) {
+            //fetch the data using loop
+            while ($row = mysqli_fetch_assoc($res2)) {
+                $id = $row['id'];
+                $title = $row['title'];
+                $price = $row['price'];
+                $description = $row['description'];
+                $image_name = $row['image_name'];
+                ?>
+                <div class="food-menu-box">
+                    <div class="food-menu-img">
+                        <?php 
+                            if($image_name == ""){
+                                echo "<div class = 'error'>Image not Added</div>";
+                            }else{
+                                ?>
+                                <img src="<?php echo SITEURL;?>images/Food/<?php echo $image_name?>" alt="Food" class="img-responsive img-curve">
+                                <?php
+                            }
+                        ?>
+                    </div>
 
-            //check whether is food exist or not
-
-            if($count > 0){
-                //fetch the data using loop
-                while($row = mysqli_fetch_assoc($res2)){
-                    $id = $row['id'];
-                    $title = $row['title'];
-                    $price = $row['price'];
-                    $description = $row['description'];
-                    $image_name = $row['image_name'];
-                }
-            }else{
-                echo "<div class = 'error'>Food not added</div>";
+                    <div class="food-menu-desc">
+                        <h4><?php echo $title;?></h4>
+                        <p class="food-price"><?php echo $price;?></p>
+                        <p class="food-detail"><?php echo $description;?></p>
+                        <br>
+                        <a href="order.html" class="btn btn-primary">Order Now</a>
+                    </div>
+                </div>
+                <?php
             }
+        } else {
+            echo "<div class = 'error'>Food not added</div>";
+        }
         ?>
 
-        <div class="food-menu-box">
-            <div class="food-menu-img">
-                <img src="images/menu-pizza.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
-            </div>
 
-            <div class="food-menu-desc">
-                <h4>Food Title</h4>
-                <p class="food-price">$2.3</p>
-                <p class="food-detail">
-                    Made with Italian Sauce, Chicken, and organice vegetables.
-                </p>
-                <br>
-
-                <a href="order.html" class="btn btn-primary">Order Now</a>
-            </div>
-        </div>
         <div class="clearfix"></div>
 
 
