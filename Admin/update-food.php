@@ -136,7 +136,7 @@ if (isset($_POST['submit'])) {
             $extension = end($ext); // only fetch the extension of the image file
 
             //renaming the image
-            $image_name = 'Food-category' . rand(0000, 9999) . '.' . $extension;
+            $image_name = 'Food-Name-' . rand(0000, 9999) . '.' . $extension;
 
             //set the source path
             $source_path = $_FILES['image']['tmp_name'];

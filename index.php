@@ -69,6 +69,34 @@
     <div class="container">
         <h2 class="text-center">Food Menu</h2>
 
+        <!-- adding functionality to add featured food through database -->
+        <?php
+            $sql2 = "SELECT * FROM tbl_food WHERE active = 'Yes' AND featured = 'Yes' LIMIT 6";
+            
+            //execute the query
+
+            $res2 = mysqli_query($conn , $sql2);
+
+            //count the rows
+
+            $count = mysqli_num_rows($res2);
+
+            //check whether is food exist or not
+
+            if($count > 0){
+                //fetch the data using loop
+                while($row = mysqli_fetch_assoc($res2)){
+                    $id = $row['id'];
+                    $title = $row['title'];
+                    $price = $row['price'];
+                    $description = $row['description'];
+                    $image_name = $row['image_name'];
+                }
+            }else{
+                echo "<div class = 'error'>Food not added</div>";
+            }
+        ?>
+
         <div class="food-menu-box">
             <div class="food-menu-img">
                 <img src="images/menu-pizza.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
