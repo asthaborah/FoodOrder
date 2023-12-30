@@ -20,6 +20,32 @@
         <div class="container">
             <h2 class="text-center">Food Menu</h2>
 
+            <!-- Adding functionality for fetching food data from the database -->
+            <?php
+                $sql = "SELECT * FROM tbl_food WHERE active = 'Yes'";
+                //executing the query
+
+                $res = mysqli_query($conn , $sql);
+
+                //count the rows
+
+                $count = mysqli_num_rows($res);
+
+                if($count > 0){
+                    //food exist
+                    while($row = mysqli_fetch_assoc($res)){
+                        $id = $row['id'];
+                        $title = $row['title'];
+                        $description = $row['description'];
+                        $image_name = $row['image_name'];
+                        $price = $row['price'];
+                    }
+                }else{
+                    //food doesn't exist
+                    echo "<div class = 'error'>Food not added</div>";
+                }
+            ?>
+
             <div class="food-menu-box">
                 <div class="food-menu-img">
                     <img src="images/menu-pizza.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
