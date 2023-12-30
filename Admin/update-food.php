@@ -170,6 +170,8 @@ if (isset($_POST['submit'])) {
                     die();
                 }
             }
+        }else{
+            $image_name = $current_image;
         }
     } else {
         $image_name = $current_image; // if the image is not selected then set the original image
