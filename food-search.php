@@ -23,7 +23,7 @@
         $search = $_POST['search'];
 
         //sql for searching an item
-        $sql = "SELECT * FROM tbl_food WHERE title LIKE %$search% OR description LIKE %$search%";
+        $sql = "SELECT * FROM tbl_food WHERE title LIKE '%$search%' OR description LIKE '%$search%'";
 
         //executing the query
         $res = mysqli_query($conn, $sql);
@@ -33,7 +33,7 @@
 
         if ($count > 0) {
             //food exist
-            while ($row == mysqli_fetch_assoc($res)) {
+            while ($row = mysqli_fetch_assoc($res)) {
                 $title = $row['title'];
                 $description = $row['description'];
                 $image_name = $row['image_name'];
@@ -42,14 +42,22 @@
                 ?>
                 <div class="food-menu-box">
                     <div class="food-menu-img">
-                        <img src="images/menu-pizza.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                        <?php 
+                            if($image_name == ""){
+                                echo "<div class = 'error'>Image not added</div>";
+                            }else{
+                                ?>
+                                <img src="<?php echo SITEURL;?>images/Food/<?php echo $image_name;?>" alt="Food" class="img-responsive img-curve">
+                                <?php
+                            }
+                        ?>
                     </div>
 
                     <div class="food-menu-desc">
-                        <h4>Food Title</h4>
-                        <p class="food-price">$2.3</p>
+                        <h4><?php echo $title;?></h4>
+                        <p class="food-price"><?php echo $price;?></p>
                         <p class="food-detail">
-                            Made with Italian Sauce, Chicken, and organice vegetables.
+                        <?php echo $description;?>
                         </p>
                         <br>
 
