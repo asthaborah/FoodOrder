@@ -17,6 +17,34 @@
         <div class="container">
             <h2 class="text-center">Food Menu</h2>
 
+            <!-- implementing search through database -->
+            <?php
+                //getting keyword for search
+                $search = $_POST['search'];
+
+                //sql for searching an item
+                $sql = "SELECT * FROM tbl_food WHERE title LIKE %$search% OR description LIKE %$search%";
+
+                //executing the query
+                $res = mysqli_query($conn , $sql);
+
+                //count the rows
+                $count = mysqli_num_rows($res);
+
+                if($count > 0){
+                    //food exist
+                    while($row == mysqli_fetch_assoc($res)){
+                        $title = $row['title'];
+                        $description = $row['description'];
+                        $image_name = $row['image_name'];
+                        $price = $row['price'];
+                    }
+                }else{
+                    //food doesn't exist
+                    echo "<div class = 'error'>Food doesn't exist</div>";
+                }
+            ?>
+
             <div class="food-menu-box">
                 <div class="food-menu-img">
                     <img src="images/menu-pizza.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
