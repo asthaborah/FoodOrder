@@ -1,10 +1,13 @@
 <?php include("Partials-front/menu.php"); ?>
-
+<?php 
+//getting keyword for search
+$search = $_POST['search'];
+?>
 <!-- fOOD sEARCH Section Starts Here -->
 <section class="food-search text-center">
     <div class="container">
 
-        <h2>Foods on Your Search <a href="#" class="text-white">"Momo"</a></h2>
+        <h2>Foods on Your Search <a href="#" class="text-white">"<?php echo $search;?>"</a></h2>
 
     </div>
 </section>
@@ -19,8 +22,6 @@
 
         <!-- implementing search through database -->
         <?php
-        //getting keyword for search
-        $search = $_POST['search'];
 
         //sql for searching an item
         $sql = "SELECT * FROM tbl_food WHERE title LIKE '%$search%' OR description LIKE '%$search%'";
