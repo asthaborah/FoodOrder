@@ -39,7 +39,7 @@
                 //show the data in the div we created for categories
                 ?>
                 <!-- if the image is set or not -->
-                <a href="<?php echo SITEURL;?>category-foods.php">
+                <a href="<?php echo SITEURL;?>category-foods.php?category_id=<?php echo $id?>">
                     <div class="box-3 float-container">
                         <?php
                         if ($image_name == "") {
