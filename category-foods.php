@@ -7,13 +7,20 @@ if (isset($_GET['category_id'])) {
 } else {
     header("location:" . SITEURL . "index.php");
 }
+
+if (isset($_GET['title'])) {
+    //security measure so that no one can access without clicking on category
+    $title = $_GET['title'];
+} else {
+    header("location:" . SITEURL . "index.php");
+}
 ?>
 
 <!-- fOOD sEARCH Section Starts Here -->
 <section class="food-search text-center">
     <div class="container">
 
-        <h2>Foods on <a href="#" class="text-white">"Category"</a></h2>
+        <h2>Foods on <a href="#" class="text-white">"<?php echo $title;?>"</a></h2>
 
     </div>
 </section>
