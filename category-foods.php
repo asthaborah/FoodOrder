@@ -30,7 +30,31 @@
                 <div class="food-menu-img">
                     <img src="images/menu-pizza.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
                 </div>
+                <!-- query for displaying foods based on category -->
+                <?php 
+                    $sql = "SELECT * FROM tbl_food WHERE category_id = $category_id";
 
+                    //executing the query
+
+                    $res = mysqli_query($conn , $sql);
+
+                    //count the rows
+                    $count = mysqli_num_rows($res);
+
+                    if($count > 0){
+                        // food exist
+                        while($row = mysqli_fetch_assoc($res)){
+                            $id = $row['id']; 
+                            $title = $row['title']; 
+                            $description = $row['description']; 
+                            $price = $row['price']; 
+                            $image_name = $row['image_name']; 
+                        }
+                    }else{
+                        //food doesn't exist
+                        echo "<div class = 'error'>Food doesn't exist</div>";
+                    }
+                ?>
                 <div class="food-menu-desc">
                     <h4>Food Title</h4>
                     <p class="food-price">$2.3</p>
