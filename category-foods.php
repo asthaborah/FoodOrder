@@ -1,4 +1,13 @@
 <?php include("Partials-front/menu.php"); ?>
+<!-- category id received through get method -->
+<?php
+if (isset($_GET['category_id'])) {
+    //security measure so that no one can access without clicking on category
+    $category_id = $_GET['category_id'];
+} else {
+    header("location:" . SITEURL . "index.php");
+}
+?>
 
 <!-- fOOD sEARCH Section Starts Here -->
 <section class="food-search text-center">
@@ -9,16 +18,6 @@
     </div>
 </section>
 <!-- fOOD sEARCH Section Ends Here -->
-
-<!-- category id received through get method -->
-<?php
-if (isset($_GET['category_id'])) {
-    //security measure so that no one can access without clicking on category
-    $category_id = $_GET['category_id'];
-} else {
-    header("location:" . SITEURL . "index.php");
-}
-?>
 
 
 <!-- fOOD MEnu Section Starts Here -->
