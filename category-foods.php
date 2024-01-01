@@ -62,7 +62,7 @@ if (isset($_GET['category_id'])) {
                         <h4>
                             <?php echo $title; ?>
                         </h4>
-                        <p class="food-price">$
+                        <p class="food-price">₹
                             <?php echo $price; ?>
                         </p>
                         <p class="food-detail">
