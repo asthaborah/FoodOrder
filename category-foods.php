@@ -76,7 +76,7 @@ if (isset($_GET['title'])) {
                         </p>
                         <br>
 
-                        <a href="#" class="btn btn-primary">Order Now</a>
+                        <a href="<?php echo SITEURL;?>order.php?food_id=<?php echo $id?>" class="btn btn-primary">Order Now</a>
                     </div>
                 </div>
 
@@ -84,7 +84,7 @@ if (isset($_GET['title'])) {
             }
         } else {
             //food doesn't exist
-            echo "<div class = 'error'>Food doesn't exist</div>";
+            echo "<div class='error'>Food doesn't exist</div>";
         }
         ?>
         <div class="clearfix"></div>

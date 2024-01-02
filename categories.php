@@ -27,7 +27,7 @@
                 $image_name = $row['image_name'];
 
                 ?>
-                <a href="category-foods.html">
+                <a href="<?php SITEURL;?>category-foods.php?category_id=<?php echo $id;?>&title=<?php echo $title?>">
                     <div class="box-3 float-container">
                         <?php 
                             //check if the image exist or not
