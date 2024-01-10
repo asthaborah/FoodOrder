@@ -13,6 +13,19 @@
 </section>
 <!-- fOOD sEARCH Section Ends Here -->
 
+<!-- session to show the order places or not -->
+
+<?php   
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    if(isset($_SESSION['ordered'])){
+        echo $_SESSION['ordered'];
+        unset($_SESSION['ordered']);
+    }
+?>
+<br>
+
 <!-- CAtegories Section Starts Here -->
 <section class="categories">
     <div class="container">

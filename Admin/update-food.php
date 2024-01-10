@@ -59,8 +59,6 @@ if (isset($_GET['id'])) {
                         }
                         ?>
                     </td>
-
-
                 </tr>
                 <tr>
                     <td>Select New Image:</td>
@@ -78,7 +76,7 @@ if (isset($_GET['id'])) {
                                     $category_id = $row2['id'];
                                     $category_title = $row2['title'];
                                     ?>
-                                    <option <?php if($current_category==$category_id){echo "selected";} ?>value="<?php echo $category_id ?>"><?php echo $category_title; ?></option>
+                                    <option <?php if($category_id == $current_category){echo "selected";} ?> value="<?php echo $category_id ?>"><?php echo $category_title; ?></option>
                                     <?php
                                 }
                             } else {

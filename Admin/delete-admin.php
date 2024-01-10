@@ -4,7 +4,13 @@
 include("../config/constants.php");
 
 //fetch the id from manage-admin
-$id = $_GET['id'];
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+}else{
+    header("location:" . SITEURL . "admin/manage-admin.php");
+    exit();
+}
+
 
 //query to delete from the table
 $sql = "DELETE FROM tbl_admin WHERE id =$id";
