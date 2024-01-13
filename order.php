@@ -113,10 +113,10 @@
 
                     if($res2){
                         $_SESSION['ordered'] = "<div class = 'success text-align'>Order placed successfully</div>";
-                        header("location:" . SITEURL . "index.php");
+                        header("location:" . SITEURL);
                     }else{
                         $_SESSION['ordered'] = "<div class = 'error'>Couldn't place the order</div>";
-                        header("location:" . SITEURL . "index.php");
+                        header("location:" . SITEURL);
                     }
                 }
             ?>
