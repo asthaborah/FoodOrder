@@ -36,7 +36,7 @@
                     <th>Actions</th>
                 </tr>
                 <?php
-                $sql = "SELECT * FROM tbl_order";
+                $sql = "SELECT * FROM tbl_order ORDER BY order_date desc"; // display the latest order on basis of date 
                 $res = mysqli_query($conn, $sql);
                 if ($res) {
                     $count = mysqli_num_rows($res);
