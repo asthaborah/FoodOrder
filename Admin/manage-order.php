@@ -7,18 +7,24 @@
             font-size: 12px;
             border-collapse: collapse;
             text-align: left;
-        }
-
-        .td-wrap{
             word-wrap: break-word;
+            max-width: 10px;
         }
     </style>
 </head>
     <div class="main-content">
-        <div style="width:95%" class="wrapper">
+        <div style="width:95%;overflow-x:auto" class="wrapper">
             <h1>Manage Order</h1>
 
-            <br><br><br>
+            <br>
+                <?php 
+                //message display if order is updated or not
+                    if(isset($_SESSION['update-order'])){
+                        echo $_SESSION['update-order'];
+                        unset($_SESSION['update-order']);
+                    }
+                ?>
+            <br><br>
             <table class="tbl-full">
                 <!-- displaying all the details of the order in the table -->
                 <tr>
@@ -36,13 +42,14 @@
                     <th>Actions</th>
                 </tr>
                 <?php
-                $sql = "SELECT * FROM tbl_order ORDER BY order_date desc"; // display the latest order on basis of date 
+                $sql = "SELECT * FROM tbl_order ORDER BY id desc"; // display the latest order on basis of date 
                 $res = mysqli_query($conn, $sql);
                 if ($res) {
                     $count = mysqli_num_rows($res);
                     if ($count > 0) {
                         $sn = 1;
                         while ($row = mysqli_fetch_assoc($res)) {
+                            $id = $row['id'];
                             $food = $row['food'];
                             $price = $row['price'];
                             $qty = $row['qty'];
@@ -59,7 +66,7 @@
                                 <td>
                                     <?php echo $sn++ ?>
                                 </td>
-                                <td class = "td-wrap" colspan="1">
+                                <td>
                                     <?php echo $food ?>
                                 </td>
                                 <td>
@@ -75,7 +82,18 @@
                                     <?php echo $order_date ?>
                                 </td>
                                 <td>
-                                    <?php echo $status ?>
+                                    <!-- now setting the colour according to status -->
+                                    <?php 
+                                        if($status == "On delivery"){
+                                            echo "<label style='color:orange;font-weight:bold;'>$status</label>";
+                                        }else if($status == "Delivered"){
+                                            echo "<label style='color:green;font-weight:bold;'>$status</label>";
+                                        }else if($status == "Cancelled"){
+                                            echo "<label style='color:red;font-weight:bold;'>$status</label>";
+                                        }else{
+                                            echo $status;
+                                        }
+                                    ?>
                                 </td>
                                 <td>
                                     <?php echo $customer_name ?>
@@ -86,11 +104,11 @@
                                 <td>
                                     <?php echo $customer_email ?>
                                 </td>
-                                <td class = "td-wrap">
+                                <td>
                                     <?php echo $customer_address ?>
                                 </td>
                                 <td>
-                                    <a href="#" class="btn-success">Update Admin</a>
+                                    <a href="<?php echo SITEURL?>admin/update-order.php?id=<?php echo $id?>" class="btn-success" style = "font-size:12px; padding:5px">Update Admin</a>
                                 </td>
 
                             </tr>
