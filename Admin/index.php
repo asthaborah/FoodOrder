@@ -67,15 +67,19 @@
 
         <!-- calculating the total number of order placed -->
         <?php
-        $sql3 = "SELECT sum(total) AS Total FROM tbl_order";
+        //query to add the total of the row
+        $sql3 = "SELECT sum(total) AS Total FROM tbl_order WHERE status = 'Delivered'";
+
         $res3 = mysqli_query($conn, $sql3);
         if ($res3) {
+            //this function is taking row in the form of associative array since there is only one row total so it has 1 value
             $row = mysqli_fetch_assoc($res3);
 
+            // we are extracting the value from the row 
             $total_revenue = $row['Total'];
             ?>
             <div class="col-4 text-align">
-                <h3><?php echo $total_revenue?></h3>
+                <h3>₹<?php echo $total_revenue?></h3>
                 Revenue Generated
             </div>
             <?php
