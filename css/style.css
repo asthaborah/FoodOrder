@@ -104,8 +104,15 @@ fieldset{
 
 /* CSSS for navbar section */
 
+.navbar{
+    position: fixed;
+    background-color: white;
+    width: 100%;
+}
+
 .logo{
-    width: 10%;
+    width: 7%;
+    padding: 10px;
     float: left;
 }
 .menu{

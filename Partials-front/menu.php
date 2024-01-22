@@ -15,7 +15,7 @@
 <body>
     <!-- Navbar Section Starts Here -->
     <section class="navbar">
-        <div class="container">
+        <div class="container1">
             <div class="logo">
                 <a href="<?php echo SITEURL?>" title="Logo">
                     <img src="images/logo.png" alt="Restaurant Logo" class="img-responsive">
