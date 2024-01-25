@@ -1,7 +1,9 @@
 <?php include("Partials-front/menu.php"); ?>
 <?php 
 //getting keyword for search
-$search = $_POST['search'];
+//to secure the search from sql injection we will use a function
+// $search = $_POST['search'];
+$search = mysqli_real_escape_string($conn , $_POST['search']); //The mysqli_real_escape_string function in PHP is used to escape special characters in a string to make it safe for use in a MySQL query
 ?>
 <!-- fOOD sEARCH Section Starts Here -->
 <section class="food-search text-center">
