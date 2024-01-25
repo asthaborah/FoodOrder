@@ -106,6 +106,7 @@ fieldset{
 
 .navbar{
     position: fixed;
+    top: 0;
     background-color: white;
     width: 100%;
 }
