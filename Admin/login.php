@@ -28,10 +28,10 @@
             <br>
             Username
             <br>
-            <input type="text" name="username" placeholder="Enter your username"> <br><br>
+            <input type="text" name="username" placeholder="Enter your username" required> <br><br>
             Password
             <br>
-            <input type="password" name="password" placeholder="Enter your password"> <br><br>
+            <input type="password" name="password" placeholder="Enter your password" required> <br><br>
 
             <input type="submit" name="submit" value="Login" class="btn-primary"><br><br>
         </form>
@@ -43,7 +43,8 @@
     if (isset($_POST["submit"])) {
         //check if the button is clicked or not
         //retrieve data from the form
-        $username = $_POST['username'];
+        //adding security measure while fetching username
+        $username = mysqli_real_escape_string($conn , $_POST['username']);
         $password = md5($_POST['password']);
 
         //run a query to check if the data exist or not
