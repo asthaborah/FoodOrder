@@ -14,7 +14,7 @@
 
 <body>
     <!-- Navbar Section Starts Here -->
-    <section class="navbar">
+    <section class="navbar" style="background-color: #f1f2f6;">
         <div class="container1">
             <div class="logo">
                 <a href="<?php echo SITEURL?>" title="Logo">

@@ -34,7 +34,7 @@
         <!-- adding the categories dynamically from the database -->
         <?php
         //creating sql query for displaying the categories
-        $sql = "SELECT * FROM tbl_category WHERE active = 'Yes' AND featured = 'Yes' LIMIT 3";
+        $sql = "SELECT * FROM tbl_category WHERE active = 'Yes' AND featured = 'Yes' LIMIT 6";
 
         //executing the query
         $res = mysqli_query($conn, $sql);
@@ -60,7 +60,7 @@
                         } else {
                             ?>
                             <img src="<?php echo SITEURL; ?>images/Category/<?php echo $image_name; ?>" alt="Pizza"
-                                class="img-responsive img-curve">
+                                class="img-responsive img-curve category-image-responsive">
                         <?php
                         }
                         ?>
