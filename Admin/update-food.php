@@ -190,7 +190,7 @@ if (isset($_POST['submit'])) {
 
     if ($res3) {
         //query has executed successfully
-        $_SESSION["updated-food"] = "<div class = 'success'>Category updated succesfully</div>";
+        $_SESSION["updated-food"] = "<div class = 'success'>Food updated succesfully</div>";
         header("location:" . SITEURL . "admin/manage-food.php");
     } else {
         //query has failed to execute

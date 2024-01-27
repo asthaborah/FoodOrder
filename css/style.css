@@ -175,6 +175,8 @@ fieldset{
 }
 .food-menu-box{
     width: 43%;
+    height: 150px;
+    border: 1px solid red;
     margin: 1%;
     padding: 2%;
     float: left;
