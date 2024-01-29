@@ -1,7 +1,7 @@
 <?php include("config/constants.php"); ?>
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <!-- Important to make website responsive -->
@@ -11,35 +11,33 @@
     <!-- Link our CSS file -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-    <!-- Navbar Section Starts Here -->
-    <section class="navbar" style="background-color: #f1f2f6;">
-        <div class="container1">
-            <div class="logo">
-                <a href="<?php echo SITEURL?>" title="Logo">
-                    <img src="images/logo.png" alt="Restaurant Logo" class="img-responsive">
-                </a>
-            </div>
-
-            <div class="menu text-right">
-                <ul>
-                    <li>
-                        <a href="<?php echo SITEURL; ?>">Home</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo SITEURL; ?>categories.php">Categories</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo SITEURL; ?>foods.php">Foods</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="clearfix"></div>
+    <!-- navbar starts here  -->
+    <nav>
+        <div class="menu-container">
+            <h1 class="header-center text-align" style="color: #94703A; font-weight:100; font-size:4em;">Wow Food</h1>
+            <!-- <div class="">
+            <ul>
+                <li>
+                    <a href="">Home</a>
+                </li>
+                <li>
+                    <a href="categories.php">Our Vision</a>
+                </li>
+                <li>
+                    <a href="foods.php">Menu</a>
+                </li>
+                <li>
+                    <a href="foods.php">Blog</a>
+                </li>
+                <li>
+                    <a href="#">Contact Us</a>
+                </li>
+            </ul>
+        </div> -->
         </div>
-    </section>
-    <!-- Navbar Section Ends Here -->
+    </nav>
+    <!-- navbar ends here -->
+</body>
+
+</html>
