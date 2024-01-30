@@ -14,31 +14,13 @@
 
 <body>
     <!-- Navbar Section Starts Here -->
-    <section class="navbar" style="background-color: #f1f2f6;">
+    <section class="navbar">
         <div class="container1">
             <div class="logo">
                 <a href="<?php echo SITEURL?>" title="Logo">
                     <img src="images/logo.png" alt="Restaurant Logo" class="img-responsive">
                 </a>
             </div>
-
-            <div class="menu text-right">
-                <ul>
-                    <li>
-                        <a href="<?php echo SITEURL; ?>">Home</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo SITEURL; ?>categories.php">Categories</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo SITEURL; ?>foods.php">Foods</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-
             <div class="clearfix"></div>
         </div>
     </section>
