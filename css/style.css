@@ -48,8 +48,9 @@ a{
     font-weight: 100;
     text-decoration: none;
 }
-a:hover{
-    color: #ff4757;
+.nav-item2 a:hover{
+    color: #94703A;
+    border-top: 3px solid #94703A;
 }
 
 .btn{
@@ -106,9 +107,6 @@ fieldset{
 
 
 /* CSSS for navbar section */
-.menu-container{
-
-}
 
 /* to center header */
 .header-center{
@@ -116,14 +114,15 @@ fieldset{
     margin: auto;
 }
 
-.nav-item1{
-    border: 1px solid green;
-    width: 100%;
+.nav-item2{
+    margin-top: 70px;
+    
 }
 
-.nav-item2{
-    border: 1px solid brown;
-    
+.nav-item2_items a{
+    float: right;
+    margin-right: 240px;
+    margin-bottom: 20px;
 }
 .navbar{
     position: fixed;
@@ -258,9 +257,11 @@ fieldset{
 /* CSS for Mobile Size or Smaller Screen */
 
 @media only screen and (max-width:768px){
+    .img-responsive{
+        width: 30%;
+    }
     .logo{
         width: 80%;
-        float: none;
         margin: 1% auto;
     }
 
