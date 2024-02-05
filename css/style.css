@@ -154,10 +154,12 @@ fieldset{
 /* CSS for Food SEarch Section */
 
 .food-search{
-    background-image: url(../images/bg.jpg);
+    background-image: url(../images/background.jpg);
     background-size: cover;
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
+    height: 50vh;
     padding: 7% 0;
 }
 
