@@ -150,6 +150,14 @@ fieldset{
     font-weight: bold;
 }
 
+/* css for front page info box */
+.info-box{
+    width: 400px;
+    height: 200px;
+    margin: auto;
+    background-color: white;
+}
+
 
 /* CSS for Food SEarch Section */
 
