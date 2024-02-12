@@ -152,12 +152,34 @@ fieldset{
 
 /* css for front page info box */
 .info-box{
-    width: 400px;
+    width: 40%;
     height: 200px;
     margin: auto;
     background-color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
+.info-text{
+    width: 80%;
+    font-weight: 300;
+    padding: 15px;
+}
+
+.info-button{
+    padding: 5px 40px;
+    background-color: white;
+    border: none;
+    font-weight: 200;
+}
+
+button:hover{
+    color: white;
+    cursor: pointer;
+    background-color: #94703A;
+}
 
 /* CSS for Food SEarch Section */
 
@@ -167,8 +189,11 @@ fieldset{
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
-    height: 50vh;
+    height: 70vh;
     padding: 7% 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .food-search input[type="search"]{

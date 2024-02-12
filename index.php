@@ -8,7 +8,8 @@
             <!-- <input type="search" name="search" placeholder="Search for Food.." required>
             <input type="submit" name="submit" value="Search" class="btn btn-primary"> -->
             <div class="info-box">
-                
+                <h1 class = "info-text">VEGETARIAN CUISINE <br> DELIVERED TO YOUR DOORSTEP</h1>  
+                <button class = "info-button">Menu</button>            
             </div>
         </form>
 
