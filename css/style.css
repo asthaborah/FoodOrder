@@ -194,6 +194,7 @@ button:hover{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transition: background-position 0.5s ease;
 }
 
 .food-search input[type="search"]{
