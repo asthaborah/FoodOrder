@@ -6,10 +6,10 @@
 $search = mysqli_real_escape_string($conn , $_POST['search']); //The mysqli_real_escape_string function in PHP is used to escape special characters in a string to make it safe for use in a MySQL query
 ?>
 <!-- fOOD sEARCH Section Starts Here -->
-<section class="food-search text-center">
+<section class="food-search-special text-center">
     <div class="container">
-        <div class="searchtext">
-            <h2 style = "color:white">Foods on Your Search <a href="#" class="text-white">"<?php echo $search;?>"</a></h2>
+        <div>
+            <h2 style = "color:black">Foods on Your Search <a href="#" class="text-black">"<?php echo $search;?>"</a></h2>
         </div>
     </div>
 </section>
