@@ -108,7 +108,7 @@
                                     <?php echo $customer_address ?>
                                 </td>
                                 <td>
-                                    <a href="<?php echo SITEURL?>admin/update-order.php?id=<?php echo $id?>" class="btn-success" style = "font-size:12px; padding:5px">Update Admin</a>
+                                    <a href="<?php echo SITEURL?>admin/update-order.php?id=<?php echo $id?>" class="btn-success" style = "font-size:12px; padding:5px">Update Order</a>
                                 </td>
 
                             </tr>
