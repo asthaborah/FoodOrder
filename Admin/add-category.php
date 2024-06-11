@@ -1,4 +1,8 @@
-<?php include("Partials/menu.php") ?>
+<?php 
+    // Start output buffering
+    ob_start();
+    include("Partials/menu.php");
+?>
 
 <div class="menu-content">
     <div class="wrapper">
@@ -165,6 +169,7 @@
             //redirect to the manage-category page
             header("location:" . SITEURL . "admin/add-category.php");
         }
+        ob_end_flush(); // Ensure output buffer is flushed before redirect
     }
     ?>
 </div>

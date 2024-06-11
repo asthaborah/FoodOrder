@@ -43,10 +43,10 @@
                             <a href="<?php echo SITEURL?>index.php">Home</a>
                         </li>
                         <li>
-                            <a href="categories.php">Our Vision</a>
+                            <a href="categories.php">Categories</a>
                         </li>
                         <li>
-                            <a href="foods.php">Menu</a>
+                            <a href="foods.php">Foods</a>
                         </li>
                         <li>
                             <a href="foods.php">Blog</a>

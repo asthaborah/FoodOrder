@@ -2,8 +2,8 @@
 
 <!-- CAtegories Section Starts Here -->
 <section class="categories">
+<h2 class="text-center">Explore Foods</h2>
     <div class="container">
-        <h2 class="text-center">Explore Foods</h2>
 
         <!-- code for fetching categories from the backend -->
         <?php
@@ -37,7 +37,7 @@
                             }else{
                                 //image exist
                                 ?>
-                                <img src="<?php echo SITEURL;?>images/Category/<?php echo $image_name?>" alt="Pizza" class="img-responsive img-curve">
+                                <img src="<?php echo SITEURL;?>images/Category/<?php echo $image_name?>" alt="Pizza" class="img-responsive img-curve" style="width: 100%; height: 300px; object-fit: cover;">
                                 <?php
                             }
                         ?>

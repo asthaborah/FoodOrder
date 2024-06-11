@@ -1,21 +1,18 @@
 <?php include("Partials-front/menu.php"); ?>
 
-<!-- fOOD sEARCH Section Starts Here -->
-<section class="food-search text-center">
-    <div class="container">
+    <!-- fOOD sEARCH Section Starts Here -->
+    <section class="food-search text-center">
+        <div class="container">
+            
+            <form action="<?php echo SITEURL;?>food-search.php" method="POST">
+                <input type="search" name="search" placeholder="Search for Food.." required>
+                <input type="submit" name="submit" value="Search" class="btn btn-primary">
+            </form>
 
-        <form action="<?php echo SITEURL;?>food-search.php" method="POST">
-            <!-- <input type="search" name="search" placeholder="Search for Food.." required>
-            <input type="submit" name="submit" value="Search" class="btn btn-primary"> -->
-            <div class="info-box">
-                <h1 class = "info-text">VEGETARIAN CUISINE <br> DELIVERED TO YOUR DOORSTEP</h1>  
-                <button class = "info-button">Menu</button>            
-            </div>
-        </form>
-
-    </div>
-</section>
-<!-- fOOD sEARCH Section Ends Here -->
+        </div>
+    </section>
+    
+    <!-- fOOD sEARCH Section Ends Here -->
 
 <!-- session to show the order places or not -->
 

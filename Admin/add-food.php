@@ -1,4 +1,8 @@
-<?php include("Partials/menu.php"); ?>
+<?php 
+    // Start output buffering
+    ob_start();
+    include("Partials/menu.php"); 
+?>
 
 <div class="main-content">
     <div class="wrapper">
@@ -120,6 +124,7 @@
                     if(!$upload){
                         $_SESSION['failed-upload-image'] = "<div class = 'error>Failed to upload image</div>";
                         header("location:" . SITEURL . "admin/add-food.php");
+                        ob_end_flush(); // Ensure output buffer is flushed before redirect
                         die();
                     }
                 }else{
@@ -148,7 +153,7 @@
                 $_SESSION["add-food"] = "<div class = 'error'>Failed to add food</div>";
                 header("location:" . SITEURL . 'admin/manage-food.php');
             }
-
+            ob_end_flush(); // Ensure output buffer is flushed before redirect
         }
     ?>
 </div>

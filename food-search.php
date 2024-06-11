@@ -8,9 +8,9 @@ $search = mysqli_real_escape_string($conn , $_POST['search']); //The mysqli_real
 <!-- fOOD sEARCH Section Starts Here -->
 <section class="food-search text-center">
     <div class="container">
-
-        <h2>Foods on Your Search <a href="#" class="text-white">"<?php echo $search;?>"</a></h2>
-
+        <div class="searchtext">
+            <h2 style = "color:white">Foods on Your Search <a href="#" class="text-white">"<?php echo $search;?>"</a></h2>
+        </div>
     </div>
 </section>
 <!-- fOOD sEARCH Section Ends Here -->
